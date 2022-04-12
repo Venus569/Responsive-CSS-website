@@ -28,6 +28,17 @@ $navbar-dropdown-item-padding-x: 1rem;
 $navbar-dropdown-separator-margin-y: 9px;
 $navbar-dropdown-separator-color: $border-color;
 
+@mixin keyframes($name){
+  @keyframes #{$name}{
+      @content;
+  }
+}
+@mixin animate($animation,$duration,$delay){
+  
+  animation-name: $animation;
+  animation-duration: $duration;
+  animation-delay: $delay;
+  }
 
 @mixin funky {
   @include keyframes(fade){
@@ -61,7 +72,7 @@ body {
   
   left: 0;
   width: 100%;
-  height: 70vh;
+  height: 80vh;
   object-fit: cover;
   z-index: -999;
 
@@ -105,6 +116,7 @@ a {
   position: fixed;
   top:0;
   left:0;
+  z-index: 999;
   .container {
     @media (min-width: 576px) {
       max-width: 540px;
@@ -284,27 +296,38 @@ a {
 
 //stats section
 .stats{
-  display:flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  height: 70vh;
+ height: 18vh;
+ font-size: 2rem;
+
+ .stat-container{
+   display: flex;
+   flex: row;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+ }
+ i{
+   font-size: 3rem;
+ }
+ .statdesc{
+   font-size: 1rem;
+ }
+ .statitem{
+   flex-basis: 10%;
+   min-width: 150px;
+   margin-left :20px;
+   margin-right :20px;
+   margin-top: 5vh;
+ }
 }
-@mixin animate($animation,$duration,$delay){
-  
-animation-name: $animation;
-animation-duration: $duration;
-animation-delay: $delay;
-}
-@mixin keyframes($name){
-  @keyframes #{$name}{
-      @content;
-  }
-}
+
+//end stat section
 .products{
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
+  
 }
 
 .clip-art{
@@ -405,10 +428,34 @@ border-radius: 50%;
     height: 100%;
     width:100%;
     object-fit: cover;
+    transition: 1.5s;
+    
   }
+}
+.gallery_item
+{
+  height: 100%;
+  width:100%;
+  background-color: grey;
+  overflow: hidden;
+  
 }
 
 
+.gallery__img:hover{
+  transform: scale(1.1)}
+/*end gallery section*/
+
+.zoomtest{
+  text-align: center;
+  border:solid thick black;
+
+}
+
+
+
+
+/*start interested container*/
 
 .interested-container{
   height:30vh;

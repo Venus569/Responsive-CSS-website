@@ -1,3 +1,16 @@
+$(document).ready(function(){
+  $(window).scroll(function(){
+  	var scroll = $(window).scrollTop();
+	  if (scroll > 300) {
+	    $(".navbar").css("background" , "blue");
+	  }
+
+	  else{
+		  $(".navbar").css("background" , "transparent");  	
+	  }
+  })
+})
+
 function reveal() {
     var reveals = document.querySelectorAll(".animato");
     for (var i = 0; i < reveals.length; i++) {
@@ -8,7 +21,7 @@ function reveal() {
       console.log("win height",windowHeight);
       console.log("element top",elementTop);
 
-      if (elementTop < 900) {
+      if (elementTop < 1000) {
         reveals[i].classList.add("active");
       } else {
         reveals[i].classList.remove("active");
@@ -24,6 +37,17 @@ function reveal() {
           }
 
     }
+    
+    var galleryImages=document.querySelectorAll(".gallery__img");
+    for (var i = 0; i <galleryImages.length; i++) {
+      var elementTop = galleryImages[i].getBoundingClientRect().top;
+      if (elementTop < 900) {
+          galleryImages[i].classList.add("animateclipart");
+        } else {
+          galleryImages[i].classList.remove("animateclipart");
+        }
+
+  }
   }
 
   window.addEventListener("scroll", reveal);
